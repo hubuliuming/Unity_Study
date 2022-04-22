@@ -20,9 +20,4 @@ public class StartView : UIBase
             UIManager.Instance.Show(Paths.SelectedHeroView);
         });
     }
-
-    protected override void OnBeforeDestroy()
-    {
- 
-    }
 }

@@ -25,6 +25,8 @@ public class UIManager : NormalSingleton<UIManager>
             return _canvas;
         }
     }
+    
+   
     private Stack<string> _uiStack = new Stack<string>();
     private Dictionary<string, IView> _views = new Dictionary<string, IView>();
     

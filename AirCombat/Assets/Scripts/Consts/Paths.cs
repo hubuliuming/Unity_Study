@@ -12,4 +12,7 @@ public class Paths
     public const string Prefab = "Prefab/";
     public const string StartView = Prefab+"StartView";
     public const string SelectedHeroView = Prefab+"SelectedHeroView";
+    public const string StrengthenView = Prefab+"StrengthenView";
+    public const string Switchplayer = Prefab+"Switchplayer";
+    public const string PicturePlayer ="Picture/Player";
 }

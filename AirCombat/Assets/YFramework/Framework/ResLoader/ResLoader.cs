@@ -6,14 +6,12 @@
     功能：资源加载器
 *****************************************************/
 
+using System.IO;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace YFramework
 {
-    public interface ILoader
-    {
-        GameObject LoadGameObject(string path, Transform parent = null);
-    }
     public class ResLoader : ILoader 
     {
         public GameObject LoadGameObject(string path, Transform parent = null)
@@ -21,6 +19,27 @@ namespace YFramework
             var prefab = Resources.Load<GameObject>(path);
             var go = Object.Instantiate(prefab, parent);
             return go;
+        }
+        
+        public string LoadConfig(string path)
+        {
+            return File.ReadAllText(path);
+        }
+
+        public T Load<T>(string path) where T : Object
+        {
+            T res = Resources.Load<T>(path);
+            if (res != null) return res;
+            Debug.LogError("未找到对应类型："+typeof(T).Name+"的资源，路径："+path);
+            return null;
+        }
+
+        public T[] LoadAll<T>(string path) where T : Object
+        {
+            T[] res = Resources.LoadAll<T>(path);
+            if (res != null && res.Length > 0) return res;
+            Debug.LogError("未找到对应类型："+typeof(T).Name+"的资源，路径："+path);
+            return null;
         }
     }
 }

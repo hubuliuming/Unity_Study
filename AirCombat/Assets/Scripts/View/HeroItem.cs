@@ -23,7 +23,7 @@ public class HeroItem : YMonoBehaviour
         img = GetComponent<Image>();
         GetComponent<Button>().onClick.AddListener(()=>
         {
-            MsgSend(MsgName.Select,this);
+            MsgDispatcher.Send(MsgName.Select,this);
             Selected();
         });
         UnSelected(); 
@@ -39,9 +39,5 @@ public class HeroItem : YMonoBehaviour
     {
         img.DOKill();
         img.DOColor(defaultCor, time);
-    }
-    protected override void OnBeforeDestroy()
-    {
-        
     }
 }

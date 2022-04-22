@@ -14,6 +14,7 @@ public class LaunchGame : MonoBehaviour
     private void Start()
     {
         new InitCustomAttribute().Init();
+        DataManager.Instance.Set(DataKeys.Level,0);
         //LoaderManager.Instance.LoadGameObject(Paths.StartView, transform);
         UIManager.Instance.Show(Paths.StartView);
     }

@@ -6,7 +6,6 @@
     功能：UI基类
 *****************************************************/
 
-
 namespace YFramework.UI
 {
     public interface IView

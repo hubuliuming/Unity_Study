@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Shader/07/07.unity
+- path: Assets/Lesson/08/08.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

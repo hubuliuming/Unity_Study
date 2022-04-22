@@ -28,11 +28,7 @@ public class SelectedHeroView : UIBase
         UiUtility.Get("Strengthen").AddListener(()=>
         {
             //todo 切换到强化界面
+            UIManager.Instance.Show(Paths.StrengthenView);
         });
-    }
-
-    protected override void OnBeforeDestroy()
-    {
-        
     }
 }

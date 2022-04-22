@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Demo/Scenes/LauchGame.unity
+- path: Assets/Scenes/LauchGame.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

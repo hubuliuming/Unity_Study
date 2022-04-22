@@ -23,7 +23,7 @@ public class SelectHero : YMonoBehaviour
             item = trans.gameObject.AddComponent<HeroItem>();
             _items.Add(item);
         }
-        MsgRegister(MsgName.Select, data =>
+        MsgDispatcher.Register(MsgName.Select, data =>
         {
             ResetState();
             HeroItem temp = data as HeroItem;
@@ -39,8 +39,8 @@ public class SelectHero : YMonoBehaviour
         }
     }
 
-    protected override void OnBeforeDestroy()
+    private void OnDestroy()
     {
-        
+        MsgDispatcher.UnRegister(MsgName.Select);
     }
 }
