@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class DeadArea : MonoBehaviour 
 {
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         var scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
