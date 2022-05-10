@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]public float jumpSpeed;
     [HideInInspector]public float gravityMultiplier;
     [HideInInspector]public float fallGravityMultiplier;
-    private int _collisionObjCount;
     private float _horizontal;
     private float _minJumpTime = 0.1f;
     private float _maxJumpTime = 0.3f;
@@ -31,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     
     
     public JumpStates JumpState = JumpStates.NotJump;
-    
+    public Trigger2D trigger2D;
 
     public UnityEvent onJump;
     public UnityEvent onLand;
@@ -49,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _horizontal = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space) && _collisionObjCount > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && trigger2D.triggered)
         {
             onJump?.Invoke();
             _rig.velocity = new Vector2(_rig.velocity.x , jumpSpeed);
@@ -104,14 +103,5 @@ public class PlayerMovement : MonoBehaviour
         _rig.velocity = new Vector2(_horizontal * horizontalMoveSpeed, _rig.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        onLand?.Invoke();
-        _collisionObjCount++;
-    }
 
-    private void OnCollisionExit2D(Collision2D col)
-    {
-        _collisionObjCount--;
-    }
 }

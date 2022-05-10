@@ -21,7 +21,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        
         var scaleOffset = 0.3f * MathF.Abs(rig.velocity.x/_playerMovement.horizontalMoveSpeed);
         transform.localScale = new Vector3(1f + scaleOffset, 0.7f + 0.3f, 1f);
     }
