@@ -6,10 +6,18 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
     [HideInInspector] public int X = 1;
-
+    
+    
+    private Lazy<int> _lazy = new Lazy<int>();
+    
+    private void Start()
+    {
+        
+    }
 }
